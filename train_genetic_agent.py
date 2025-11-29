@@ -32,6 +32,7 @@ class GeneticTrainer:
         num_opponents = min(10, len(self.population) - 1)
 
         for i, network in enumerate(self.population):
+            print(".")
             opponents_idx = random.sample(
                 [j for j in range(len(self.population)) if j != i],
                 num_opponents
@@ -47,7 +48,7 @@ class GeneticTrainer:
                         fitness_scores[i] += 1
                     else:
                         fitness_scores[opp_idx] += 1
-
+        print("\n")
         fitness = [
             fitness_scores[i] / game_counts[i] if game_counts[i] > 0 else 0.0
             for i in range(len(self.population))
@@ -65,7 +66,6 @@ class GeneticTrainer:
         '''
         Returns 0 if network1 wins, 1 if network2 wins
         '''
-
         p1 = GeneticAgent(Colour.RED, network=network1)
         p2 = GeneticAgent(Colour.BLUE, network=network2)
 
