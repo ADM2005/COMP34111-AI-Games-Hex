@@ -14,13 +14,13 @@ def test_agent():
     Test the agent
     '''
 
-    p1 = GeneticAgent(Colour.RED, model_path="")
-    p2 = GeneticAgent(Colour.BLUE)
+    p1 = GeneticAgent(Colour.RED)
+    p2 = GeneticAgent(Colour.BLUE, "")
 
 
     game = Game(
-        player1=Player(name="GeneticRandom", agent=p1),
-        player2=Player(name="GeneticBest", agent=p2),
+        player1=Player(name="GeneticBest", agent=p1),
+        player2=Player(name="GeneticRandom", agent=p2),
         board_size=11,
         logDest=sys.stderr,
         verbose=True
